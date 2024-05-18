@@ -1,0 +1,26 @@
+/*div[data-testid="stExpander"] summary {
+    color: violet;
+}
+
+div[data-testid="stExpander"] svg {
+    color: violet;
+}*/
+[data-testid="stExpander"] summary span p {
+    font-size: 18px;
+}
+
+[data-testid="stExpander"] summary span {
+    color: #330033 !important;
+}
+
+[data-testid="stExpander"] summary svg {
+    fill: #330033;
+}
+
+[data-testid="stExpander"] summary:hover span {
+    color: #800080 !important;
+}
+
+[data-testid="stExpander"] summary:hover svg {
+    fill: #800080;
+}
