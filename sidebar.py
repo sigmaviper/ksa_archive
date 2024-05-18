@@ -6,7 +6,7 @@ def renderSidebar(st, customItems={}):
 
     st.sidebar.link_button(
         "Archive of Our Own",
-        "https://archiveofourown.org/users/kicksomeacid/pseuds/kicksomeacid",
+        "https://archiveofourown.org/users/kicksomeacid/",
         use_container_width=True,
     )
     st.sidebar.link_button(
