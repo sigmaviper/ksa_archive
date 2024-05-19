@@ -8,6 +8,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     menu_items={
         "About": "This app is an archive of kicksomeacid's curiouscat, created to search and filter responses. All content and images used in the application belong to their respective owners and the creater of this app does not claim any right over them.",
+        "Report a Bug": "https://github.com/sigmaviper/ksaarchive/issues",
     },
 )
 
@@ -195,9 +196,12 @@ def loadPage():
 
 
 if __name__ == "__main__":
-    local_css("style.css")
+
+    local_css("styles/style.css")
 
     st.markdown("# Works")
+
     customItems = {"About": ["This page contains links to KSA's works."]}
+
     sidebar.renderSidebar(st, customItems)
     loadPage()

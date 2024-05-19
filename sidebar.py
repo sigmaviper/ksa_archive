@@ -4,6 +4,8 @@ def renderSidebar(st, customItems={}):
         for string in customItems["About"]:
             st.sidebar.info(string)
 
+    st.sidebar.divider()
+
     st.sidebar.link_button(
         "Archive of Our Own",
         "https://archiveofourown.org/users/kicksomeacid/",

@@ -10,6 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     menu_items={
         "About": "This app is an archive of kicksomeacid's curiouscat, created to search and filter responses. All content and images used in the application belong to their respective owners and the creater of this app does not claim any right over them.",
+        "Report a Bug": "https://github.com/sigmaviper/ksaarchive/issues",
     },
 )
 
@@ -122,10 +123,6 @@ def loadPage(data):
     indices = []
     # if filter didnt change, keep the same indices and keep using that.
     filter_changed = filterChanged(search_phrase, dropdown_values, sort_order)
-    indices_left = (
-        st.session_state["indices"] != None
-        and len(st.session_state["indices"]) > st.session_state["count"]
-    )
 
     if not filter_changed:
         indices = st.session_state["indices"]
@@ -154,7 +151,10 @@ def loadPage(data):
             author_profile, author_reply = st.columns([0.1, 0.9])
 
             author_profile.image("images/kicksomeacid_avatar.jpg")
-            author_reply.write(reply)
+
+            if reply != "nan":
+                reply = "> " + reply.replace("\n", "\n> ")
+                author_reply.markdown(reply)
 
             if type(media) != str:
                 author_reply.image(media["img"])
@@ -183,9 +183,13 @@ def loadPage(data):
 
 if __name__ == "__main__":
 
-    local_css("style.css")
+    local_css("styles/home.css")
 
     if "count" not in st.session_state:
+        st.toast(
+            "Data isn't updated in real time. It will be updated every weekend.",
+            icon="ℹ",
+        )
         setSessionStateValues()
 
     QnA = pd.read_csv("ksaanswers.csv")
@@ -199,5 +203,6 @@ if __name__ == "__main__":
             f"Please be patient as there are {total_entries} questions in total.",
         ]
     }
+
     sidebar.renderSidebar(st, customItems)
     loadPage(QnA)
