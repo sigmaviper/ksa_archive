@@ -7,7 +7,7 @@ st.set_page_config(
     page_title="Home",
     page_icon="🗂️",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="auto",
     menu_items={
         "About": "This app is an archive of kicksomeacid's curiouscat, created to search and filter responses. All content and images used in the application belong to their respective owners and the creater of this app does not claim any right over them.",
         "Report a Bug": "https://github.com/sigmaviper/ksaarchive/issues",
@@ -87,17 +87,19 @@ def getPageData(filters, data):
             indices = [
                 index
                 for index in indices
-                if search_phrase.lower() in str(data["Keywords"][index])
-                or search_phrase.lower() in str(data["Message"][index])
-                or search_phrase.lower() in str(data["Reply"][index])
+                if (
+                    search_phrase.lower() in str(data["Message"][index]).lower()
+                    or search_phrase.lower() in str(data["Reply"][index]).lower()
+                )
             ]
         else:
             indices = [
                 index
                 for index, _ in data.iterrows()
-                if search_phrase.lower() in str(data["Keywords"][index])
-                or search_phrase.lower() in str(data["Message"][index])
-                or search_phrase.lower() in str(data["Reply"][index])
+                if (
+                    search_phrase.lower() in str(data["Message"][index]).lower()
+                    or search_phrase.lower() in str(data["Reply"][index]).lower()
+                )
             ]
 
     if sort_order and sort_order == "Older Replies First":
