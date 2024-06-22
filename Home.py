@@ -189,7 +189,7 @@ if __name__ == "__main__":
 
     if "count" not in st.session_state:
         st.toast(
-            "Data isn't updated in real time. It will be updated every weekend.",
+            "Data isn't updated in real time.",
             icon="ℹ",
         )
         setSessionStateValues()
