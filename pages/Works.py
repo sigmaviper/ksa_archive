@@ -111,6 +111,13 @@ def loadPage():
                 use_container_width=True,
             )
 
+        with st.expander("B-A-B-Y Baby"):
+             st.link_button(
+                "Open in AO3",
+                "https://archiveofourown.org/works/55131757",
+                use_container_width=True,
+            )
+
     with iylm_tab:
         st.header(works[2])
         st.image("images/IYLM.jpeg")
@@ -201,7 +208,7 @@ if __name__ == "__main__":
 
     st.markdown("# Works")
 
-    customItems = {"About": ["This page contains links to KSA's works."]}
+    customItems = {"About": ["This page contains links to KSA's works and character visuals."]}
 
     sidebar.renderSidebar(st, customItems)
     loadPage()

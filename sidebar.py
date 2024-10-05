@@ -12,8 +12,11 @@ def renderSidebar(st, customItems={}):
         use_container_width=True,
     )
     st.sidebar.link_button(
-        "CuriousCat", "https://curiouscat.live/kicksomeacid", use_container_width=True
+        "Zaqa", "https://zaqa.net/kicksomeacid", use_container_width=True
     )
     st.sidebar.link_button(
         "Twitter", "https://x.com/kicksomeacid", use_container_width=True
+    )
+    st.sidebar.link_button(
+        "CuriousCat", "https://curiouscat.live/kicksomeacid", use_container_width=True
     )
